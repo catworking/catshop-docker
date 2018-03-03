@@ -9,3 +9,5 @@ RUN curl https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/dru
     mv drush.phar /usr/local/bin/drush && \
     chmod +x /usr/local/bin/drush && \
     drush self-update
+
+RUN apk add --no-cache mysql-client
