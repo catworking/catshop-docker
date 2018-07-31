@@ -11,3 +11,5 @@ RUN curl https://github.com/drush-ops/drush-launcher/releases/download/0.5.1/dru
     drush self-update
 
 RUN apk add --no-cache mysql-client
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
