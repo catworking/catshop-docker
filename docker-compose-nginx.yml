@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+
+  web1:
+    image: webdevops/nginx:alpine
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == host-db1
+    environment:
+      TZ: Asia/Shanghai
+
+  web2:
+    image: webdevops/nginx:alpine
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == host-db2
+    environment:
+      TZ: Asia/Shanghai
+
+
+networks:
+  app_net:
+    driver: overlay
