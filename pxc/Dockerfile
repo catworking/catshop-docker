@@ -46,14 +46,7 @@ VOLUME ["/var/lib/mysql", "/var/log/mysql"]
 
 RUN sed -ri 's/^log_error/#&/' /etc/mysql/my.cnf
 
-ADD node.cnf /etc/mysql/conf.d/node.cnf
-
 COPY entrypoint.sh /entrypoint.sh
-COPY jq /usr/bin/jq
-COPY clustercheckcron /usr/bin/clustercheckcron
-
-RUN chmod a+x /usr/bin/jq
-RUN chmod a+x /usr/bin/clustercheckcron
 
 
 EXPOSE 3306 4567 4568
