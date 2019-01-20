@@ -51,6 +51,8 @@ ADD my.cnf /etc/mysql/conf.d/node.cnf
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
+RUN setenforce 0
+
 EXPOSE 3306 4567 4568
 
 LABEL vendor=Percona
