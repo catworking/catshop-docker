@@ -47,7 +47,7 @@ VOLUME ["/var/lib/mysql", "/var/log/mysql"]
 RUN sed -ri 's/^log_error/#&/' /etc/mysql/my.cnf
 
 COPY entrypoint.sh /entrypoint.sh
-
+RUN chmod a+x /entrypoint.sh
 
 EXPOSE 3306 4567 4568
 
