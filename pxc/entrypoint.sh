@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo 123456 $CLUSTER_NAME $CLUSTER_ADDRESS $XTRABACKUP_PASSWORD $NODE_NAME $NODE_ADDRESS
+
 exec mysqld --user=mysql \
      --wsrep_cluster_name=$CLUSTER_NAME \
      --wsrep_cluster_address="gcomm://$CLUSTER_ADDRESS" \
