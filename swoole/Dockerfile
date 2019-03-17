@@ -1,7 +1,5 @@
 FROM webdevops/php-apache:alpine-php7
 
-RUN apk add --no-cache mysql-client
-
 RUN mkdir -p ~/build && \
     cd ~/build && \
     rm -rf ./swoole-src && \
