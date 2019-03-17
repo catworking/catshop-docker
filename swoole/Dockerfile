@@ -1,18 +1,8 @@
 FROM webdevops/php-apache:alpine-php7
 
-RUN mkdir -p ~/build && \
-    cd ~/build && \
-    rm -rf ./swoole-src && \
-    curl -o ./tmp/swoole.tar.gz https://github.com/swoole/swoole-src/archive/master.tar.gz -L && \
-    tar zxvf ./tmp/swoole.tar.gz && \
-    mv swoole-src* swoole-src && \
-    cd swoole-src && \
-    phpize && \
-    ./configure \
-    --enable-coroutine \
-    --enable-openssl  \
-    --enable-http2  \
-    --enable-async-redis \
-    --enable-sockets \
-    --enable-mysqlnd && \
-    make clean && make && sudo make install
+RUN echo http://mirrors.ustc.edu.cn/alpine/v3.7/main > /etc/apk/repositories && \
+    echo http://mirrors.ustc.edu.cn/alpine/v3.7/community >> /etc/apk/repositories
+    RUN apk update && apk upgrade
+    RUN apk add m4 autoconf make gcc g++ linux-headers
+    RUN pecl install swoole-4.2.1
+    RUN docker-php-ext-enable swoole
