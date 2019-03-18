@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+
+  swoole:
+    image: registry.cn-shenzhen.aliyuncs.com/catshop/swoole:swoole
+    environment:
+      TZ: Asia/Shanghai
